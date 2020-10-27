@@ -14,8 +14,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('./client'))
 
-const db = require('monk')('localhost/dbshort');
-
 
 app.get('/url/:id',(req,res)=>{
     // todo redirect
@@ -26,15 +24,7 @@ app.get('/:id',(req,res)=>{
     })
 
 app.post('/url',(req,res)=>{
-    // todo : create a short url
-    const users = db.get('users');
-    users.insert({
-        url:req.body.url,
-        name:req.body.name,
-    }),
-    res.json({
-        message:"done",  
-    })
+   
     })
 
 
